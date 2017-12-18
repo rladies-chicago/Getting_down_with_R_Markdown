@@ -1,0 +1,185 @@
+---
+title: "Getting Down with R Markdown"
+author: "Kaylene McClanahan"
+date: "December 13, 2017"
+output: 
+  ioslides_presentation:
+    widescreen: true
+    transition: faster
+---
+
+## Hi, I'm Kaylene
+
+### Professional background:
+* PhD student in Management and Organizations at the Kellogg School of Management 
+* Research in hierarchy and leadership emergence
+* Have been teaching myself R for about a year and a half
+* Going into data science or analytics post graduation
+
+### Other interests:
+1. Being outside
+2. Eating eggs
+3. Finger guns
+4. Babies  
+
+
+
+
+
+## What is R Markdown?
+* A way of taking your R code and/or results and getting them somewhere else
+* Great for reporting results, putting them on the web, etc.
+* Also a great to way to organize and annotate projects
+
+## What can you do with R Markdown?
+* Make presentations (like this one!)
+* Make pdfs, word documents, or basically any other kind of document
+* Make your work more reproducible
+* Make interactive (or not!) webpages
+* Write books  
+
+
+## Are there any drawbacks to R Markdown?
+* Formatting is more limited
+* Can be more time consuming up front
+* There is a little bit of a learning curve  
+
+## How to Use R Markdown 
+1. Install 'rmarkdown' package---should automatically install other dependent packages 
+```{r, eval = FALSE}
+install.packages('rmarkdown')
+```
+2. In Rstudio, use drop-down menu to create a new .Rmd file 
+3. Make your report/document/webpage (more details soon) 
+4. "Knit" your document into a new format 
+
+## Every R Markdown document has two components
+1. **Header:** this tells the R Markdown document telling it what it's going to be become 
+2. **Body:** This is where you type what are going to publish, usually includes text and code from R 
+
+
+## About those headers
+* Written in YAML (Yet Another Markup Language)
+* Will auto-populate if you use the dropdown menu in RStudio
+
+```{r, eval = FALSE}
+---
+title: "Getting Down with R Markdown"  
+author: "Kaylene McClanahan"  
+date: "December 13, 2017"  
+output: ioslides_presentation
+---
+```
+
+
+## About those headers, con't
+* Can use to make document-wide style choices
+```{r, eval = FALSE}
+---
+title: "Getting Down with R Markdown"  
+author: "Kaylene McClanahan"  
+date: "December 13, 2017"  
+output:  
+  ioslides_presentation:  
+  widescreen: true  
+  transition: faster  
+---
+```
+
+
+## About that body
+* You will very likely include narration; this is written mostly normally 
+* Formatting choices are going to be written into the text (but this doesn't interfere with readability) 
+
+\#\# Every R Markdown document has two components  
+\* \*\*Header:\*\* this tells the R Markdown document telling it what it's going to be become  
+\* \*\*Body:\*\* This is where you type what are going to publish, usually includes text and code from R  
+
+## Every R Markdown document has two components
+* **Header:** this tells the R Markdown document telling it what it's going to be become  
+* **Body:** This is where you type what are going to publish, usually includes text and code from R 
+
+##Some R Markdown Formatting Basics
+The very essentials:
+
+\#\# This is a header  
+\#\#\# This is a smaller header  
+Use single backticks for package names, etc.: `dplyr`  
+This is how you do \*\*italics\*\* and \*bold\*   
+End a line with two spaces to start a new paragraph.    
+
+becomes:  
+
+## This is a header  
+### This is a smaller header   
+Use single backticks for package names, etc.: `dplyr`  
+This is how you do *italics* and **bold**.   
+End a line with two spaces to start a new paragraph.    
+
+
+## But what about...R?
+* Embed chunks code from R using three backticks and curly bracket  
+
+\`\`\`\{r\}  
+x <- 3  
+y <- 3 + 4  
+\`\`\`  
+becomes: 
+```{r}
+x <- 3
+y <- 3 + 4
+```
+## Snippets
+* Embed snippets into your text using the a single backtick and a lowercase r.  
+
+There were a total of \`\r r 3 + 5\` paragraphs in the report.
+
+becomes:
+
+There were a total of `r 3 + 5` paragraphs in the report.
+
+## More advanced embedding options:
+Do you want to include the results, but not code?  
+\`\`\`\{r, echo = FALSE\}
+
+Do you want to show the code but not run it?  
+\`\`\`\{r, eval = FALSE\}
+
+Do you want messages to not appear?  
+\`\`\`\{r, message = FALSE\}
+
+## And then, you knit!
+* In R Studio, this is as easy as clicking a button  
+* In R, you run:  
+ ```{r, eval = FALSE}
+ rmarkdown::render("<file path>") 
+ ```
+
+## You are approached by a NYC start-up: "Chugging Along"
+* Hangover-preventation-focused Uber competitor (make passengers chug water before exiting the car)
+* Want to know everything they can about parties in NYC
+* They give you some (seemingly v flawed) data
+* V strapped for cash---can only afford to hire you for ~ 45 mins of work
+* Want to see your process, but in a digestable output (R Markdown???)
+
+## Party Data
+* Entirety of the party-related noise-complaints in 2016 in NYC  
+    * From [Kaggle](https://www.kaggle.com/somesnm/partynyc)
+    * Also includes time/date of call, time/date it was closed, borough, zip code,        location type  
+* Joined this with some NYC demographic data from the 2010 census  
+    * From [Baruch College Library](https://www.baruch.cuny.edu/confluence/display/geoportal/NYC+Geographies) (thanks, Frank Donnelly!)
+    * Demographic information is at the PUMA level  
+    * PUMAs are public use microdata areas. They are roughly 100K people.  
+    * Includes a variety of things that I thought were interesting  
+
+## Part(l)y Data?
+* There are some issues 
+* There is the party_ready data frame, or the party_sideways which is limited to 55   unique observations
+
+## Now go explore and report! 
+* Each group has an R Markdown cheat sheet and list of variables
+* Spend a few minutes talking about what you'd like to do
+* Spend about 20 minutes playing around with the data
+* Spend about 20 minutes putting your results in R Markdown
+
+

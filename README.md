@@ -3,6 +3,7 @@ An introduction to R Markdown and a collaborative coding challenge exploring NYC
 
 ### Summary
 This content was developed for the December 2017 R Ladies Chicago meetup. There were two parts to this meet up---first was a 20-minute presentation on R Markdown, and then we broke into small groups for a collaborative coding challenge. Groups then spent an hour exploring data on party-related noise complaints in NYC, which includes party-related noise complaints in NYC (including their time and location within the city) and neighborhood-level demographics. They compiled what they found into an R Markdown report and shared with the rest of the group.  
+
 This repository contains both the presentation on R Markdown as well as the data that we used for the coding challenge. More details about the coding challenge and NYC party data can be found in the R Markdown presentation.
 
 ### What's Inside
